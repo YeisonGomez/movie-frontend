@@ -25,6 +25,7 @@ class Home extends React.Component {
 
     return (
       <div className="App">
+        <h1>Cambio de blas</h1>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
 
