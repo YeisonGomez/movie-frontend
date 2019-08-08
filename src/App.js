@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <hi>Cambio de Sebastian Danna</hi>
+          <hi>Cambio de Sebastian</hi>
           <h1> Danna C 2</h1>
           <hi>Cambio de Stefany</hi>
           <Switch>
