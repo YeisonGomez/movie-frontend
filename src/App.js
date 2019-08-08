@@ -12,6 +12,8 @@ class App extends React.Component {
       <Router>
         <div>
           <hi>Cambio de Yeison</hi>
+          <hi>Cambio de Sebastian</hi>
+          <h1> Danna C 2</h1>
           <hi>Cambio de Stefany</hi>
           <Switch>
             <Route exact path="/" component={Home} />
