@@ -2,12 +2,30 @@ import React from 'react';
 import logo from '../../logo.svg';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import './Home.css';
+import * as moment from 'moment'
+import { DatePicker } from 'antd';
 
 class Home extends React.Component {
 
   state = {
+    users: [],
     movieName: "",
     movieList: []
+  }
+
+  componentDidMount(){
+    const dateAdd10 = moment().add(10, 'days');
+    const now = moment();
+    console.log(dateAdd10.diff(now, 'days'));
+    this.getUsers();
+  }
+
+  getUsers(){
+    fetch("https://reqres.in/api/users?page=2")
+    .then(async response => {
+      const users = await response.json()
+      this.setState({ users: users.data });
+    })
   }
 
   setMovieName(event){
@@ -21,20 +39,17 @@ class Home extends React.Component {
   }
 
   render() {
-    const { movieName, movieList } = this.state;
+    const { movieName, movieList, users } = this.state;
 
     return (
       <div className="App">
-        <h1>Cambio de blas</h1>
+        <DatePicker />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
 
           <ul>
-            { movieList.map((movie, i) => {
-                return (
-                  <MovieCard key={i} name={movie}></MovieCard>
-                )
-              })
+            { 
+              users.map((user, i) => <MovieCard key={i} name={user.first_name}/>)
             }
           </ul>
           <p>{ movieName }</p>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './scenes/Home/Home';
 import Login from './scenes/Login/Login';
 import './App.css';
+import 'antd/dist/antd.css';
 
 class App extends React.Component {
 
@@ -11,8 +12,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <hi>Cambio de Yeison</hi>
-          <hi>Cambio de Stefany</hi>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
