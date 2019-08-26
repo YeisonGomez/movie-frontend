@@ -14,9 +14,6 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    const dateAdd10 = moment().add(10, 'days');
-    const now = moment();
-    console.log(dateAdd10.diff(now, 'days'));
     this.getUsers();
   }
 
@@ -48,9 +45,7 @@ class Home extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
 
           <ul>
-            { 
-              users.map((user, i) => <MovieCard key={i} name={user.first_name}/>)
-            }
+            { users.map((user, i) => <MovieCard key={i} name={user.first_name}/>) }
           </ul>
           <p>{ movieName }</p>
           <input id="movie-name" placeholder="Nombre pelicula" onChange={(e) => this.setMovieName(e)}/>
